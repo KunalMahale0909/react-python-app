@@ -1,19 +1,12 @@
 pipeline {
 agent any
 
-```
+
 environment {
     REGISTRY = "192.168.56.12/demo"
 }
 
 stages {
-
-    stage('Checkout') {
-        steps {
-            git branch: 'main',
-            url: 'https://github.com/KunalMahale0909/react-python-app.git'
-        }
-    }
 
     stage('Build Backend') {
         steps {
@@ -46,6 +39,6 @@ stages {
         }
     }
 }
-```
+
 
 }
