@@ -1,7 +1,6 @@
 pipeline {
 agent any
 
-
 environment {
     REGISTRY = "192.168.56.12/demo"
 }
@@ -17,6 +16,12 @@ stages {
     stage('Build Frontend') {
         steps {
             sh 'docker build -t $REGISTRY/frontend:latest frontend/'
+        }
+    }
+
+    stage('Harbor Login') {
+        steps {
+            sh 'docker login 192.168.56.12 -u admin -p Harbor12345'
         }
     }
 
@@ -39,6 +44,5 @@ stages {
         }
     }
 }
-
 
 }
